@@ -4,7 +4,7 @@ import TodoListItem from './TodoListItem'
 
 export default function TodoList(props) {
 
-  const items = props.items.map((item, index) => {
+  const items = props.items.map((item) => {
     return (
       <TodoListItem
         item = {item}
