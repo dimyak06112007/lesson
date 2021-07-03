@@ -3,29 +3,29 @@ import TodoList from './TodoList';
 export default class TodoForm extends Component {
   constructor(props) {
     super(props);
-    this.input = React.createRef();
-    this.addItem  =this.addItem.bind(this)
-    this.handler = this.handler.bind(this)  }
 
-  addItem (event) {
-    event.preventDefault()
-    console.log("in addItem")
-    alert('send name ' + this.input.current.value)
+    this.addItem = this.addItem.bind(this);
+    this.inputRef = React.createRef();
   }
-  handler() {
-    this.setState(
-      {todo: this.input.current.value}
-      )
+
+  addItem(event) {
+    event.preventDefault();
+    // this.inputRef == input
+    this.setState({todo: this.inputRef.current.value})
+    this.inputRef.current.value = '';
+    console.log(this.inputRef.current.value)
   }
+
 
   render() {
     return (
-      <div>
-        <input ref={this.input} type="text" placeholder="Enter your task" name="inputToDo" />
-        <button type="submit" onClick  ={this.addItem, <TodoList {...this.handler}/> } value="Execute">Add</button>
-      </div>
-
-      
+      <form onSubmit={this.addItem}>
+        <label htmlFor="
+        ">
+          <input ref={this.inputRef} type="text" placeholder="Enter your task" />
+        </label>
+        <input type="submit" value="Add" />
+      </form>
     )
   }
 }
