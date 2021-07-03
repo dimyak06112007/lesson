@@ -8,7 +8,7 @@ export default function TodoList(props) {
     return (
       
       <TodoListItem
-        item = {this.props.handler}
+        item = {item}
       />
     )
   })

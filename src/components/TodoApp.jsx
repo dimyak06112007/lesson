@@ -7,21 +7,25 @@ export default class TodoApp extends Component {
 
   constructor(props) {
     super(props);
+    this.updateList = this.updateList.bind(this)
 
     this.state = {
       todoItems: ['first todo', 'second todo'],
     }
   }
 
-  updateList() {
-    
+  updateList(list) {
+    this.setState(
+      () => list
+    )
   }
 
   render() {
     return (
       <div>
-        <TodoList items={this.state.todoItems}/>
-        <TodoForm/>
+        <TodoList items={this.state.todoItems} />
+        <TodoForm updateList={this.updateList} items = {this.todoItems} />
+
       </div>
     )
   }

@@ -10,11 +10,14 @@ export default class TodoForm extends Component {
 
   addItem(event) {
     event.preventDefault();
+    const list =[...this.props.items, this.inputRef.current.value]
     // this.inputRef == input
     this.setState({todo: this.inputRef.current.value})
     this.inputRef.current.value = '';
     console.log(this.inputRef.current.value)
+    this.props.updateList(list)
   }
+
 
 
   render() {
