@@ -6,8 +6,9 @@ export default function TodoList(props) {
 
   const items = props.items.map((item, index) => {
     return (
+      
       <TodoListItem
-        item = {item}
+        item = {this.props.handler}
       />
     )
   })

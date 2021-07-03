@@ -6,7 +6,7 @@ export default function TodoListItem(props) {
     <li>
       <div>
         <span></span>
-        {props.item.value}
+        {props.item}
       </div>
     </li>
   )
